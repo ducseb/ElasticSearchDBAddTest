@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IndigoSIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_ARTICLES">
+          <Key>
+            <PropertyRef Name="DOC_I_ID" />
+          </Key>
+          <Property Name="DOC_I_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="RUB_I_ID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PUB_S_ID" Type="char" MaxLength="3" />
+          <Property Name="DOC_I_ID_EDITEUR" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ART_S_SURTITRE" Type="varchar" MaxLength="255" />
+          <Property Name="ART_S_TITRE" Type="varchar" MaxLength="255" />
+          <Property Name="ART_S_SOUS_TITRE" Type="varchar" MaxLength="255" />
+          <Property Name="ART_S_SUJET" Type="varchar" MaxLength="255" />
+          <Property Name="ART_S_CHAPEAU" Type="varchar" MaxLength="512" />
+          <Property Name="ART_S_TEXTE" Type="text" />
+          <Property Name="ART_DT_PUBLICATION" Type="datetime" />
+          <Property Name="ART_DT_PUBLICATION_WEB" Type="datetime" />
+          <Property Name="ART_I_NUM_PUBLICATION" Type="int" />
+          <Property Name="ART_DT_FIN_VALIDITE" Type="datetime" />
+          <Property Name="ART_S_NOM_COMPLET" Type="varchar" MaxLength="255" />
+          <Property Name="ART_DT_WDATECREATION" Type="datetime" />
+          <Property Name="ART_S_WTITRE" Type="varchar" MaxLength="1024" />
+          <Property Name="ART_S_WSUJET" Type="varchar" MaxLength="255" />
+          <Property Name="ART_S_WMOTSCLES" Type="varchar" MaxLength="2048" />
+          <Property Name="ART_S_WCOMMENTAIRE" Type="text" />
+          <Property Name="ART_I_NBR_CARACTERES" Type="int" Nullable="false" />
+          <Property Name="ART_I_NBR_MOTS" Type="int" Nullable="false" />
+          <Property Name="ART_S_THEME" Type="varchar" MaxLength="255" />
+          <Property Name="ART_B_VALIDE" Type="bit" />
+          <Property Name="ART_S_RUBRIQUES" Type="varchar" MaxLength="255" />
+          <Property Name="ART_S_PAYS" Type="varchar" MaxLength="255" />
+          <Property Name="ART_S_PUBLICATION" Type="varchar" MaxLength="255" />
+          <Property Name="ART_S_WAUTEUR" Type="varchar" MaxLength="255" />
+          <Property Name="ART_S_WNOMDOC" Type="varchar" MaxLength="255" />
+          <Property Name="SER_S_ID" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="ART_S_LANGUE" Type="char" MaxLength="3" />
+          <Property Name="ART_S_SURRUBRIQUE" Type="varchar" MaxLength="255" />
+          <Property Name="ART_S_SOUSRUBRIQUE" Type="varchar" MaxLength="255" />
+          <Property Name="ART_S_REGION" Type="varchar" MaxLength="255" />
+          <Property Name="ART_S_SOUSREGION" Type="varchar" MaxLength="255" />
+          <Property Name="ART_S_SOUSTHEME" Type="varchar" MaxLength="255" />
+          <Property Name="ART_S_SURTHEME" Type="varchar" MaxLength="2048" />
+          <Property Name="ART_I_RATED" Type="int" />
+          <Property Name="ART_I_NBR_ENRICHISSEMENT" Type="int" />
+          <Property Name="FORUMID" Type="int" />
+          <Property Name="ART_S_CAN_I_ID" Type="varchar" MaxLength="255" />
+          <Property Name="ART_S_CANAUX" Type="varchar" MaxLength="255" />
+          <Property Name="ART_I_NBR_URLS" Type="int" />
+          <Property Name="ART_I_NBR_CONTACTS" Type="int" />
+          <Property Name="ART_I_NBR_DOC_COMPLEMENTAIRES" Type="int" />
+          <Property Name="ART_I_LASTMODIFIED" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="ART_S_NOM" Type="varchar" MaxLength="50" />
+          <Property Name="ART_S_PRENOM" Type="varchar" MaxLength="50" />
+          <Property Name="DOC_I_ID_ART_LINK" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ART_B_A_LA_UNE" Type="bit" />
+        </EntityType>
+        <EntityType Name="T_PAYS_ARTICLE">
+          <Key>
+            <PropertyRef Name="DOC_I_ID" />
+            <PropertyRef Name="PAY_I_ID" />
+          </Key>
+          <Property Name="DOC_I_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PAY_I_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TP_PAYS">
+          <Key>
+            <PropertyRef Name="PAY_I_ID" />
+          </Key>
+          <Property Name="PAY_I_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PAY_S_FR_LIBELLE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PAY_S_AN_LIBELLE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PAY_S_INDICATIF_TEL" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="PAY_S_INDICATIF_FAX" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TVA_S_ID" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="PAY_B_IsCountry" Type="int" />
+          <Property Name="PAY_B_IsOld" Type="bit" Nullable="false" />
+          <Property Name="PAY_I_TARIF_POSTAL" Type="int" />
+          <Property Name="PAY_S_CODE" Type="varchar" MaxLength="20" />
+          <Property Name="ZON_S_ID" Type="nvarchar" MaxLength="3" />
+          <Property Name="PAY_S_HTAG_FR" Type="varchar" MaxLength="100" />
+          <Property Name="PAY_S_HTAG_AN" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_T_ARTICLES_T_ARTICLES">
+          <End Role="T_ARTICLES" Type="Self.T_ARTICLES" Multiplicity="0..1" />
+          <End Role="T_ARTICLES1" Type="Self.T_ARTICLES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ARTICLES">
+              <PropertyRef Name="DOC_I_ID" />
+            </Principal>
+            <Dependent Role="T_ARTICLES1">
+              <PropertyRef Name="DOC_I_ID_ART_LINK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_PAYS_A_LIEN_330_T_ARTICL">
+          <End Role="T_ARTICLES" Type="Self.T_ARTICLES" Multiplicity="1" />
+          <End Role="T_PAYS_ARTICLE" Type="Self.T_PAYS_ARTICLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ARTICLES">
+              <PropertyRef Name="DOC_I_ID" />
+            </Principal>
+            <Dependent Role="T_PAYS_ARTICLE">
+              <PropertyRef Name="DOC_I_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_PAYS_A_LIEN_331_TP_PAYS">
+          <End Role="TP_PAYS" Type="Self.TP_PAYS" Multiplicity="1" />
+          <End Role="T_PAYS_ARTICLE" Type="Self.T_PAYS_ARTICLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TP_PAYS">
+              <PropertyRef Name="PAY_I_ID" />
+            </Principal>
+            <Dependent Role="T_PAYS_ARTICLE">
+              <PropertyRef Name="PAY_I_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IndigoSIModelStoreContainer">
+          <EntitySet Name="T_ARTICLES" EntityType="Self.T_ARTICLES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_PAYS_ARTICLE" EntityType="Self.T_PAYS_ARTICLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TP_PAYS" EntityType="Self.TP_PAYS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_T_ARTICLES_T_ARTICLES" Association="Self.FK_T_ARTICLES_T_ARTICLES">
+            <End Role="T_ARTICLES" EntitySet="T_ARTICLES" />
+            <End Role="T_ARTICLES1" EntitySet="T_ARTICLES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_PAYS_A_LIEN_330_T_ARTICL" Association="Self.FK_T_PAYS_A_LIEN_330_T_ARTICL">
+            <End Role="T_ARTICLES" EntitySet="T_ARTICLES" />
+            <End Role="T_PAYS_ARTICLE" EntitySet="T_PAYS_ARTICLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_PAYS_A_LIEN_331_TP_PAYS" Association="Self.FK_T_PAYS_A_LIEN_331_TP_PAYS">
+            <End Role="TP_PAYS" EntitySet="TP_PAYS" />
+            <End Role="T_PAYS_ARTICLE" EntitySet="T_PAYS_ARTICLE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="T_ARTICLES">
+          <Key>
+            <PropertyRef Name="DOC_I_ID" />
+          </Key>
+          <Property Name="DOC_I_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="RUB_I_ID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PUB_S_ID" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="DOC_I_ID_EDITEUR" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ART_S_SURTITRE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ART_S_TITRE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ART_S_SOUS_TITRE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ART_S_SUJET" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ART_S_CHAPEAU" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="ART_S_TEXTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ART_DT_PUBLICATION" Type="DateTime" Precision="3" />
+          <Property Name="ART_DT_PUBLICATION_WEB" Type="DateTime" Precision="3" />
+          <Property Name="ART_I_NUM_PUBLICATION" Type="Int32" />
+          <Property Name="ART_B_VALIDE" Type="Boolean" />
+          <Property Name="ART_S_RUBRIQUES" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ART_S_PAYS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ART_S_PUBLICATION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SER_S_ID" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ART_S_LANGUE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="ART_S_REGION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ART_S_SOUSREGION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ART_S_SOUSTHEME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ART_S_SURTHEME" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="ART_I_RATED" Type="Int32" />
+          <Property Name="ART_I_NBR_ENRICHISSEMENT" Type="Int32" />
+          <Property Name="ART_S_CAN_I_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ART_S_CANAUX" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ART_B_A_LA_UNE" Type="Boolean" />
+          <NavigationProperty Name="TP_PAYS" Relationship="DBModel.T_PAYS_ARTICLE" FromRole="T_ARTICLES" ToRole="TP_PAYS" />
+        </EntityType>
+        <EntityType Name="TP_PAYS">
+          <Key>
+            <PropertyRef Name="PAY_I_ID" />
+          </Key>
+          <Property Name="PAY_I_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PAY_S_FR_LIBELLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PAY_S_AN_LIBELLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PAY_S_INDICATIF_TEL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PAY_S_INDICATIF_FAX" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TVA_S_ID" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PAY_B_IsCountry" Type="Int32" />
+          <Property Name="PAY_B_IsOld" Type="Boolean" Nullable="false" />
+          <Property Name="PAY_I_TARIF_POSTAL" Type="Int32" />
+          <Property Name="PAY_S_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ZON_S_ID" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="PAY_S_HTAG_FR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PAY_S_HTAG_AN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_ARTICLES" Relationship="DBModel.T_PAYS_ARTICLE" FromRole="TP_PAYS" ToRole="T_ARTICLES" />
+        </EntityType>
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_ARTICLES" EntityType="Self.T_ARTICLES" />
+          <EntitySet Name="TP_PAYS" EntityType="Self.TP_PAYS" />
+          <AssociationSet Name="T_PAYS_ARTICLE" Association="DBModel.T_PAYS_ARTICLE">
+            <End Role="T_ARTICLES" EntitySet="T_ARTICLES" />
+            <End Role="TP_PAYS" EntitySet="TP_PAYS" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="T_PAYS_ARTICLE">
+          <End Type="DBModel.T_ARTICLES" Role="T_ARTICLES" Multiplicity="*" />
+          <End Type="DBModel.TP_PAYS" Role="TP_PAYS" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IndigoSIModelStoreContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="T_ARTICLES">
+            <EntityTypeMapping TypeName="DBModel.T_ARTICLES">
+              <MappingFragment StoreEntitySet="T_ARTICLES">
+                <ScalarProperty Name="DOC_I_ID" ColumnName="DOC_I_ID" />
+                <ScalarProperty Name="RUB_I_ID" ColumnName="RUB_I_ID" />
+                <ScalarProperty Name="PUB_S_ID" ColumnName="PUB_S_ID" />
+                <ScalarProperty Name="DOC_I_ID_EDITEUR" ColumnName="DOC_I_ID_EDITEUR" />
+                <ScalarProperty Name="ART_S_SURTITRE" ColumnName="ART_S_SURTITRE" />
+                <ScalarProperty Name="ART_S_TITRE" ColumnName="ART_S_TITRE" />
+                <ScalarProperty Name="ART_S_SOUS_TITRE" ColumnName="ART_S_SOUS_TITRE" />
+                <ScalarProperty Name="ART_S_SUJET" ColumnName="ART_S_SUJET" />
+                <ScalarProperty Name="ART_S_CHAPEAU" ColumnName="ART_S_CHAPEAU" />
+                <ScalarProperty Name="ART_S_TEXTE" ColumnName="ART_S_TEXTE" />
+                <ScalarProperty Name="ART_DT_PUBLICATION" ColumnName="ART_DT_PUBLICATION" />
+                <ScalarProperty Name="ART_DT_PUBLICATION_WEB" ColumnName="ART_DT_PUBLICATION_WEB" />
+                <ScalarProperty Name="ART_I_NUM_PUBLICATION" ColumnName="ART_I_NUM_PUBLICATION" />
+                <ScalarProperty Name="ART_B_VALIDE" ColumnName="ART_B_VALIDE" />
+                <ScalarProperty Name="ART_S_RUBRIQUES" ColumnName="ART_S_RUBRIQUES" />
+                <ScalarProperty Name="ART_S_PAYS" ColumnName="ART_S_PAYS" />
+                <ScalarProperty Name="ART_S_PUBLICATION" ColumnName="ART_S_PUBLICATION" />
+                <ScalarProperty Name="SER_S_ID" ColumnName="SER_S_ID" />
+                <ScalarProperty Name="ART_S_LANGUE" ColumnName="ART_S_LANGUE" />
+                <ScalarProperty Name="ART_S_REGION" ColumnName="ART_S_REGION" />
+                <ScalarProperty Name="ART_S_SOUSREGION" ColumnName="ART_S_SOUSREGION" />
+                <ScalarProperty Name="ART_S_SOUSTHEME" ColumnName="ART_S_SOUSTHEME" />
+                <ScalarProperty Name="ART_S_SURTHEME" ColumnName="ART_S_SURTHEME" />
+                <ScalarProperty Name="ART_I_RATED" ColumnName="ART_I_RATED" />
+                <ScalarProperty Name="ART_I_NBR_ENRICHISSEMENT" ColumnName="ART_I_NBR_ENRICHISSEMENT" />
+                <ScalarProperty Name="ART_S_CAN_I_ID" ColumnName="ART_S_CAN_I_ID" />
+                <ScalarProperty Name="ART_S_CANAUX" ColumnName="ART_S_CANAUX" />
+                <ScalarProperty Name="ART_B_A_LA_UNE" ColumnName="ART_B_A_LA_UNE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TP_PAYS">
+            <EntityTypeMapping TypeName="DBModel.TP_PAYS">
+              <MappingFragment StoreEntitySet="TP_PAYS">
+                <ScalarProperty Name="PAY_I_ID" ColumnName="PAY_I_ID" />
+                <ScalarProperty Name="PAY_S_FR_LIBELLE" ColumnName="PAY_S_FR_LIBELLE" />
+                <ScalarProperty Name="PAY_S_AN_LIBELLE" ColumnName="PAY_S_AN_LIBELLE" />
+                <ScalarProperty Name="PAY_S_INDICATIF_TEL" ColumnName="PAY_S_INDICATIF_TEL" />
+                <ScalarProperty Name="PAY_S_INDICATIF_FAX" ColumnName="PAY_S_INDICATIF_FAX" />
+                <ScalarProperty Name="TVA_S_ID" ColumnName="TVA_S_ID" />
+                <ScalarProperty Name="PAY_B_IsCountry" ColumnName="PAY_B_IsCountry" />
+                <ScalarProperty Name="PAY_B_IsOld" ColumnName="PAY_B_IsOld" />
+                <ScalarProperty Name="PAY_I_TARIF_POSTAL" ColumnName="PAY_I_TARIF_POSTAL" />
+                <ScalarProperty Name="PAY_S_CODE" ColumnName="PAY_S_CODE" />
+                <ScalarProperty Name="ZON_S_ID" ColumnName="ZON_S_ID" />
+                <ScalarProperty Name="PAY_S_HTAG_FR" ColumnName="PAY_S_HTAG_FR" />
+                <ScalarProperty Name="PAY_S_HTAG_AN" ColumnName="PAY_S_HTAG_AN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="T_PAYS_ARTICLE" TypeName="DBModel.T_PAYS_ARTICLE" StoreEntitySet="T_PAYS_ARTICLE">
+            <EndProperty Name="TP_PAYS">
+              <ScalarProperty Name="PAY_I_ID" ColumnName="PAY_I_ID" />
+            </EndProperty>
+            <EndProperty Name="T_ARTICLES">
+              <ScalarProperty Name="DOC_I_ID" ColumnName="DOC_I_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
